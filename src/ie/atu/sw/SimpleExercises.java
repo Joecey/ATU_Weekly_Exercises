@@ -1,11 +1,11 @@
 package ie.atu.sw;
 
-// alt + num keys to open menus
-// shift+f10 to compile and run
-// sout, ctrl+enter for suggestions and system out
-// ctrl+d duplicate
-// ctrl+y delete line
-// ctrl+shift+n open files
+/* alt + num keys to open menus
+shift+f10 to compile and run
+sout, ctrl+enter for suggestions and system out
+ctrl+d duplicate
+ctrl+y delete line
+ ctrl+shift+n open files */
 
 public class SimpleExercises {
     public static void main(String[] args) {
