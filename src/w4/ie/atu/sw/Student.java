@@ -6,8 +6,9 @@ public class Student {
     // define some instance variables
     public long sid; // instance variable as public is kinda cringe
     public String name = "Undefined";
-    public LocalDate dobi;
+    public LocalDate dateOfRegistration;
     public boolean registered = false;
+    public int age;
 
     // this constructor method should always be the same name as the class
     public Student() {
@@ -15,8 +16,9 @@ public class Student {
     }
 
     // create some methods
-    public void register(){
+    public void register(int studentAge){
         this.registered = true;
+        this.age = studentAge;
         System.out.println("student is now registered");
     }
 
