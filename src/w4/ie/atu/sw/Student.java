@@ -2,7 +2,7 @@ package w4.ie.atu.sw;
 
 import java.time.LocalDate;
 
-class Student {
+public class Student {
     // define some instance variables - ALWAYS PRIVATE
     private long sid; // instance variable as public is kinda cringe
     private String name = "Undefined";
