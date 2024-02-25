@@ -5,6 +5,7 @@ This program will be used to
 * */
 public class Bottles {
     // STATIC = means that method belongs to class, rather than a single instance of a class
+    private Bottles (){};
     public static void drink(int studentAge, int bottles) {
         System.out.println("This student is " + studentAge);
         Lines.nLines(2);
