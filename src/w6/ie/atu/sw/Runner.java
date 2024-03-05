@@ -5,7 +5,7 @@ public class Runner {
         System.out.println("Welcome to week 6");
         NLines.createNLines(2);
         System.out.println("Week 6 code example");
-        AreaCalculator s = new AreaCalculator();
+        AreaCalculator.beginCalculation();
     }
 }
 

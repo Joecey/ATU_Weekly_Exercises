@@ -4,16 +4,18 @@ import java.util.Scanner;
 
 public class AreaCalculator {
     // Instance variables
-    private final Scanner scanner; // used to take in stuff from console (make final)
+    private static Scanner scanner; // used to take in stuff from console (make final)
 //    private boolean running = true; // use this to implement constant area calculator
 
-    public AreaCalculator(){
+    private AreaCalculator(){}; // can't construct objects from this class
+
+    public static void beginCalculation() {
         scanner = new Scanner(System.in); // read from console now = specify scanner as reading from system in
         init();
         processInput();
-    };
+    }
 
-    public void calculateCircle(){
+    private static void calculateCircle(){
         System.out.println("Calculating circle... Enter Radius");
         double radius = Double.parseDouble(scanner.next());
 
@@ -26,8 +28,7 @@ public class AreaCalculator {
 
     }
 
-
-    public void calculateTriangle(){
+    private static void calculateTriangle(){
         System.out.println("Calculating triangle...Enter base");
         double base = Double.parseDouble(scanner.next());
 
@@ -47,7 +48,7 @@ public class AreaCalculator {
     }
 
     // handle scanner input
-    private void processInput(){
+    private static void processInput(){
         int option = Integer.parseInt(scanner.next());
 
         switch (option) {
@@ -57,7 +58,7 @@ public class AreaCalculator {
             default -> System.out.println("Invalid selection bozo!!!");
         }
     }
-    private void init(){
+    private static void init(){
         System.out.println("-- Area Calculator --");
         NLines.createNLines(1);
         System.out.println("(1) Area of Circle");
