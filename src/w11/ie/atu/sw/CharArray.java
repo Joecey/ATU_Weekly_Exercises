@@ -4,8 +4,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class CharArray {
     private char[] text = null;
-    private static final int MIN_OGHAM = 5760;
-    private static final int MAX_OGHAM = 5791;
+    private static final int MIN_CHAR = 33;
+    private static final int MAX_CHAR = 54;
     public CharArray(int size){
         text = new char[size];
         init();
@@ -18,7 +18,7 @@ public class CharArray {
         ThreadLocalRandom rnd = ThreadLocalRandom.current();
         for (int i = 0; i < text.length; i++) {
             // we are casting the numbers to a char
-            text[i] = (char) rnd.nextInt(MIN_OGHAM, MAX_OGHAM); // using ASCII codes
+            text[i] = (char) rnd.nextInt(MIN_CHAR, MAX_CHAR); // using ASCII codes
         }
     }
 }
