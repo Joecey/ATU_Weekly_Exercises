@@ -27,7 +27,7 @@ public class Runner {
             CharArray randomChar = new CharArray(Integer.parseInt(args[0]));
             System.out.println(randomChar.getCharacterArrayAsString());
         }else {
-            System.out.println("Usage: java ie.atu.sw.Runner <CharArraySize>");
+            System.out.println("Incorrect Usage, please use: java ie.atu.sw.Runner <CharArraySize>");
         }
 
     }
