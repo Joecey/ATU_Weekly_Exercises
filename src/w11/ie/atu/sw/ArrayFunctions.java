@@ -15,7 +15,7 @@ public class ArrayFunctions {
         return returnIndex;
     }
 
-    public static int[] generateRandom(int arraySize){
+    public static int[] GenerateRandom(int arraySize){
         int[] newArray = new int[arraySize];
         ThreadLocalRandom rnd = ThreadLocalRandom.current();
 

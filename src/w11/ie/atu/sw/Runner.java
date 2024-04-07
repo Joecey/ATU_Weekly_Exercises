@@ -19,7 +19,7 @@ public class Runner {
         print(uberNumbers);
         System.out.println(targetNumber + " is located at index " + ArrayFunctions.FindInIntArray(uberNumbers, targetNumber));
 
-        int[] randomArray = ArrayFunctions.generateRandom(4);
+        int[] randomArray = ArrayFunctions.GenerateRandom(4);
         print(randomArray);
 
         // *** using characters in arrays - get parmeters from main args***
