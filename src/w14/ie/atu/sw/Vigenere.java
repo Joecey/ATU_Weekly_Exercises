@@ -2,10 +2,33 @@ package w14.ie.atu.sw;
 
 public class Vigenere {
     private static final char[][] TABULA_RECTA = TabulaRecta.tabulaRecta;
+    public static final int MIN_KEY_SIZE = 10;
+    public static final int MAX_KEY_SIZE = 100;
     private final char[] key; // probably easy to do this
 
-    public Vigenere(String key) {
+    public Vigenere(String key) throws Exception {
+        validateKey(key);
+        charactersOnly(key);
         this.key = key.trim().toUpperCase().toCharArray();
+    }
+
+    private void charactersOnly(String toCheck) throws Exception {
+        for (char c : toCheck.toCharArray()) {
+            if (Character.isDigit(c)) {
+                throw new Exception("You can't have any digits in your key or message");
+            }
+        }
+    }
+
+    // creating a checked exception
+    private void validateKey(String key) throws Exception {
+        if (key == null) {
+            throw new Exception("Vignere error: Key cannot be null");
+        } else if (key.length() < MIN_KEY_SIZE || key.length() > MAX_KEY_SIZE) {
+            throw new Exception("Vignere error: key size must be between " +
+                    MIN_KEY_SIZE + " and " + MAX_KEY_SIZE);
+        }
+
     }
 
     private char[] expandedKey(String preText) {
@@ -25,7 +48,16 @@ public class Vigenere {
         return currentKey;
     }
 
-    public String vigenereProcess(String preText, boolean encrypt) {
+    private void validateString(String message) throws Exception {
+        if (message.length() < MIN_KEY_SIZE) {
+            throw new Exception("Message is too short bozo");
+        }
+    }
+
+    public String vigenereProcess(String preText, boolean encrypt) throws Exception {
+        validateString(preText);
+        charactersOnly(preText);
+
         char[] currentKey = expandedKey(preText);
 //        System.out.println(currentKey);
 
