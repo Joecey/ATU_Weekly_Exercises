@@ -30,24 +30,6 @@ public class Vigenere {
         }
 
     }
-
-    private char[] expandedKey(String preText) {
-        char[] currentKey = key;
-
-        while (preText.length() > currentKey.length) {
-//            System.out.println("Updating key length...");
-            char[] newKey = new char[currentKey.length * 2];
-            System.arraycopy(currentKey, 0, newKey, 0, currentKey.length);
-
-            // now we fill in the remaining pieces
-            for (int i = 0; i < currentKey.length; i++) {
-                newKey[currentKey.length + i] = currentKey[i];
-            }
-            currentKey = newKey;
-        }
-        return currentKey;
-    }
-
     private void validateString(String message) throws Exception {
         if (message.length() < MIN_KEY_SIZE) {
             throw new Exception("Message is too short bozo");
@@ -58,7 +40,7 @@ public class Vigenere {
         validateString(preText);
         charactersOnly(preText);
 
-        char[] currentKey = expandedKey(preText);
+        char[] currentKey = key;
 //        System.out.println(currentKey);
 
         StringBuilder sb = new StringBuilder();
@@ -67,10 +49,11 @@ public class Vigenere {
                 sb.append(' ');
             } else {
                 char newChar;
+                int keyIndex = i == 0 ? i : (key.length - 1)% i;
                 if (encrypt) {
-                    newChar = getEncryptedCharacter(preText.charAt(i), currentKey[i]);
+                    newChar = getEncryptedCharacter(preText.charAt(i), currentKey[keyIndex]);
                 } else {
-                    newChar = getDecryptedCharacter(currentKey[i], preText.charAt(i));
+                    newChar = getDecryptedCharacter(currentKey[keyIndex], preText.charAt(i));
                 }
                 sb.append(newChar);
             }
