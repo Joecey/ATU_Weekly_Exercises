@@ -1,16 +1,15 @@
 package w14.ie.atu.sw;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class Vigenere {
     private static final char[][] TABULA_RECTA = TabulaRecta.tabulaRecta;
     public static final int MIN_KEY_SIZE = 10;
     public static final int MAX_KEY_SIZE = 100;
-    private final char[] key; // probably easy to do this
+    private char[] key; // probably easy to do this
 
     public Vigenere(String key) throws Exception {
+
         validateKey(key);
         charactersOnly(key);
         this.key = key.trim().toUpperCase().toCharArray();
@@ -133,12 +132,14 @@ public class Vigenere {
     public void saveKey(String file) throws Exception{
         // use serialiser to serialise a string
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
-
+        out.writeObject(key);
         out.close();
     }
 
     public void loadKey(String file) throws Exception{
-
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+        this.key = (char[]) in.readObject();
+        in.close();
     }
 
 }

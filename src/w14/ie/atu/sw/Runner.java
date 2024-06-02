@@ -9,7 +9,7 @@ public class Runner {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
 
-        String key = "ShortKeyTest";
+        String key = "BrandNewKey";
         String plainText = null;
         String file = null;
 
@@ -27,7 +27,8 @@ public class Runner {
             Vigenere cipher;
             try {
                 cipher = new Vigenere(key);
-                cipher.saveKey("./key.txt");
+                cipher.loadKey("./key.txt"); // use previous key
+//                cipher.saveKey("./key.txt");
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
