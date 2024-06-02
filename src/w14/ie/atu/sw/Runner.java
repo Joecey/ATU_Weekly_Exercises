@@ -27,6 +27,7 @@ public class Runner {
             Vigenere cipher;
             try {
                 cipher = new Vigenere(key);
+                cipher.saveKey("./key.txt");
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

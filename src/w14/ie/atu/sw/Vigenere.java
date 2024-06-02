@@ -1,5 +1,9 @@
 package w14.ie.atu.sw;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 public class Vigenere {
     private static final char[][] TABULA_RECTA = TabulaRecta.tabulaRecta;
     public static final int MIN_KEY_SIZE = 10;
@@ -124,6 +128,17 @@ public class Vigenere {
             }
         }
         return indexRow;
+    }
+
+    public void saveKey(String file) throws Exception{
+        // use serialiser to serialise a string
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+
+        out.close();
+    }
+
+    public void loadKey(String file) throws Exception{
+
     }
 
 }
