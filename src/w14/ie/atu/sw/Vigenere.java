@@ -70,7 +70,11 @@ public class Vigenere {
         // go through each value in row 0 with keyChar
         int keyCharIndex = findCharRowColumn(keyChar, true);
         //System.out.println(keyChar + ", " + plainChar + ", " + TABULA_RECTA[plainCharIndex][keyCharIndex] );
-        return TABULA_RECTA[plainCharIndex][keyCharIndex];
+        if (keyCharIndex == -1 || plainCharIndex == -1){
+            return keyChar;
+        } else{
+            return TABULA_RECTA[plainCharIndex][keyCharIndex];
+        }
     }
 
 
@@ -104,7 +108,11 @@ public class Vigenere {
 
 
         //System.out.println(keyChar + ", " + cipherChar + ", " + TABULA_RECTA[originalCharLocation][0]);
-        return TABULA_RECTA[originalCharLocation][0];
+        if (originalCharLocation != -1){
+            return TABULA_RECTA[originalCharLocation][0];
+        } else{
+            return cipherChar;
+        }
     }
 
     private int findOriginalCharLocale(char cipherChar, int keyCharIndex) {
